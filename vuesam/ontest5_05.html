@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>계산기 만들기</title>
+</head>
+<body>
+  <h2>간단한 계산기</h2>
+  <div id="app">
+    <input v-model.number = "num1">
+    <input v-model.number = "num2"><br><br>
+    <button v-on:click="addCal">더하기</button>
+    <button v-on:click="subCal">빼 기</button>
+    <button v-on:click="mulCal">곱하기</button>
+    <button v-on:click="divCal">나누기</button>
+    <!-- <p>결과는 {{ result }} 입니다.</p> -->
+
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        num1 : 0,
+        num2 : 0,
+        result: 0
+      },
+      methods: {
+        addCal:function(){
+          this.result = this.num1 + this.num2
+          alert("결과는 " + this.result + "입니다")
+        },
+        subCal:function(){
+          this.result = this.num1 - this.num2
+          alert("결과는 " + this.result + "입니다")
+        },
+        mulCal:function(){
+          this.result = this.num1 * this.num2
+          alert("결과는 " + this.result + "입니다")
+        },
+        divCal:function(){
+          this.result = this.num1 / this.num2
+          alert("결과는 " + this.result + "입니다")
+        }
+      }
+    })
+  </script>
+</body>
+</html>

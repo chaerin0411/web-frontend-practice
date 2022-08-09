@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>bind 속성 예제</title>
+</head>
+
+<body>
+    <h2>myAlign 지정 예제</h2>
+    <div id="app">
+        <p align="right">우측정렬 직접 지정</p>
+        <p v-bind:align="myAlign">우측정렬을 v-bind로 지정</p>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myAlign: 'right'
+            }
+        })
+    </script>
+</body>
+
+</html>

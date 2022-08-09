@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>타이머감지</title>
+</head>
+<body>
+  <h2>남은 시간 감지</h2>
+  <div id="app">
+    <p>앞으로 {{resetSec}}초</p>
+    <button v-on:click="startTimer">시작</button>
+  </div>
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        resetSec : 5,
+        timerObj:null,
+      },
+      methods:{
+        startTimer:function(){
+          this.resetSec = 5
+          this.timerObj = setInterval(() => {
+            this.resetSec--
+          }, 1000);
+        }
+      },
+      watch:{
+        resetSec:function(){
+          if(this.resetSec <=0){
+            alert("제한 시간입니다!!")
+            clearInterval(this.timerObj)
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

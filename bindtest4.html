@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>bind 속성 예제</title>
+</head>
+
+<body>
+    <h2>인라인 스타일 지정 예제</h2>
+    <div id="app">
+        <p style="color: blue;">문자색 직접 지정</p>
+        <p v-bind:style="{color: myColor}">문자색을 v-bind로 지정</p>
+        <p style="font-Size: 200%">글자크기 직접 지정</p>
+        <p v-bind:style="{fontSize: mySize}">글자크기를 v-bind로 지정</p>
+        <p style="backgroundColor: aqua;">배경색 직접 지정</p>
+        <p v-bind:style="{backgroundColor: myBackgroundColor}">배경색을 v-bind로 지정</p>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myAlign: 'right',
+                myColor: '#D6009D',
+                mySize: '200%',
+                myBackgroundColor: '#F4C49A'
+            }
+        })
+    </script>
+</body>
+
+</html>

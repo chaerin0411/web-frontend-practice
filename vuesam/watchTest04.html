@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+  <title>숫자애니메이션</title>
+</head>
+<body>
+  <h2>숫자가 빠르게 올라가는 애니메니션을 보여주며 값이 증가하는 input태그 예</h2>
+  <div id="app">
+    <p>값은 {{aniNumber}}입니다</p>
+    <input v-model.number="myNUmber" type="number">
+  </div>
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        myNUmber : 0,
+        tweenedNumber : 0
+      },
+      computed:{
+        //tweenedNumber감시
+        aniNumber:function(){
+          return this.tweenedNumber.toFixed(0)
+        }
+      },
+      watch:{
+      ///myNumber감시
+      myNUmber:function(){
+        TweenMax.to(this.$data, 1, {tweenedNumber:this.myNUmber})
+      }
+      }
+    })
+  </script>
+</body>
+</html>

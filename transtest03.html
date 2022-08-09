@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>버튼을 누르면 리스트가 증감할 때 애니메이션 적용</h2>
+    <div id="app">
+        <button v-on:click="toggle=!toggle">변경하기</button>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <!-- SVG 요소에 트랜지션 사용하기 -->
+            <transition>
+                <my-circle v-bind:fill="fill" v-bind:key="fill"></my-circle>
+            </transition>
+        </svg>
+    </div>
+    <script>
+        Vue.component('my-circle', {
+            template: '<circle cx="80" cy="75" r="50" v-bind:fill="fill"/>',
+            props: {
+                fill: String
+            }
+        })
+
+        new Vue({
+            el: '#app' ,
+            data: {
+                toggle: false
+            },
+            computed: {
+                fill: function() {
+                    return this.toggle ? 'lightpink' : 'skyblue'
+                }
+            }
+        })
+    </script>
+    <style>
+        .v-enter-active, .v-leave-active {
+            transition: all 1s;
+        }
+        .v-leave-active {
+            position: absolute;
+        }
+        .v-enter, .v-leave-to {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+    </style>
+</body>
+</html>

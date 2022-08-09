@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>제어문(if)</title>
+</head>
+
+<body>
+    <h2>true와 false일때 표시하는 예제</h2>
+    <div id="app">
+        <label>
+            <input type="checkbox" v-model="myVisible">표시
+        </label>
+        <p v-if="myVisible">체크박스가 ON</p>
+        <p v-else=>체크박스가 OFF</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app' ,
+            data: {
+                myVisible: false
+            }
+        })
+    </script>
+    </html>

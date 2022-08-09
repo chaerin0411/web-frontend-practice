@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>bind 속성 예제</title>
+</head>
+
+<body>
+    <h2>링크를 지정하는 예제</h2>
+    <div id="app">
+        <p><a href="https://daum.net">링크를 직접지정</a></p>
+        <p><a v-bind:href="myURL">링크를 v-bind로 지정</a></p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myURL: 'https://www.naver.com'
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>구글 차트 그리기</title>
+    </head>
+
+    <body>
+        <h2>미스터트롯 투표하기</h2>
+        <div id="chart_div" style="height: 500px;">
+        </div>
+        <div id="app">
+            <li v-for="(item, c) in dataArray" v-if="c > 0"> {{ item[0] }} : {{ item[1] }} 
+                <button v-on:click="addOne(c)">한표</button>
+                <button v-on:click="subOne(c)">한표뺴기</button>
+            </li>
+        </div>
+        <script>
+            var orgdata = [
+                ['이름', '표수'],
+                ['임영웅', 7],
+                ['영탁', 6],
+                ['이찬원', 5],
+                ['김호중', 4],
+                ['정동원', 3],
+                ['장민호', 2],
+                ['김희재', 1]
+            ]
+            google.charts.load('current', { packages: ['corechart'] })
+            google.charts.setOnLoadCallback(drawBasic)
+            function drawBasic() {
+                var data = google.visualization.arrayToDataTable(orgdata)
+                var options = { title: '국민가수', "is3D": true }
+                var chart = new google.visualization.BarChart(
+                    document.getElementById('chart_div')
+                )
+                chart.draw(data, options)
+            }
+        </script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    dataArray: orgdata
+                },
+                methods: {
+                    addOne: function(val) {
+                        var obj = this.dataArray[val]
+                        obj[1]++
+                        this.dataArray.splice(val, 1, obj)
+                        drawBasic()
+                    },
+                    subOne: function (val) {
+                        var obj = this.dataArray[val]
+                        obj[1]--
+                        this.dataArray.splice(val, 1, obj)
+                        drawBasic()
+                    }
+                }
+            })
+        </script>
+    </body>
+
+    </html>

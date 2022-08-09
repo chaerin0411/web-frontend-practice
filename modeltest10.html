@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력폼 활용</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h2>입력폼 활용</h2>
+    <div id="app">
+        이름 : 
+        <label><input v-model.lazy="myName" placeholder="이름"></label>
+        <p>좋아하는 색은 : </p>
+        <label><input type="radio" value="red" v-model="myColor">빨강</label><br>
+        <label><input type="radio" value="green" v-model="myColor">녹색</label><br>
+        <label><input type="radio" value="blue" v-model="myColor">파란색</label><br>
+        <label><input type="radio" value="yellow" v-model="myColor">노란색</label><br>
+        <label><input type="radio" value="gray" v-model="myColor">회색</label><br>
+        <p v-bind:style="{color: myColor}">내 이름은 {{ myName }} 이고 좋아하는 색은 {{ myColor }} 입니다.</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app' ,
+            data: {
+                myName: '' ,
+                myColor: []
+            }
+        })
+    </script>
+</body>
+</html>

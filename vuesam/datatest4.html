@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>데이터연습</title>
+</head>
+<body>
+  <h2>자바스크립트로 오브젝트로 값을 표시하는 예제</h2>
+  <div id="app">
+    <p>{{ myTea }}</p>
+    <p>{{ myTea[0].name }} {{ myTea[0].price }}원</p>
+    <p>{{ myTea[1].name }} {{ myTea[1].price }}원</p>
+    <p>{{ myTea[2].name }} {{ myTea[2].price }}원</p>
+ 
+  </div>
+
+  <script>
+    var teaList = [
+        {name:'샌드위치',price:4500},
+        {name:'아메리카노',price:3000},
+        {name:'햄버거',price:5000}
+ 
+                  ]
+    new Vue({
+      el: '#app',
+      data: {
+        myTea: teaList
+        
+      }
+    })
+  </script>
+</body>
+</html>

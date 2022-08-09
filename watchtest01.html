@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>감지 프로퍼티</title>
+</head>
+
+<body>
+    <h2>금지문자 입력 판단하는 예제</h2>
+    <div id="app">
+        <p>금지문자는 &lt;&lt;{{ forbiddenText }}&gt;&gt; 입니다. </p>
+        <textarea v-model="inputText"></textarea>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                forbiddenText: '안되',
+                inputText: '우리는 Vue 공부 중입니다.'
+            },
+            watch: {
+                inputText: function() {
+                    var pos = this.inputText.indexOf(this.forbiddenText);
+                    if(pos >= 0) {
+                        alert(this.forbiddenText + "는 입력할 수 없습니다.")
+                        this.inputText = this.inputText.substr(0, pos)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

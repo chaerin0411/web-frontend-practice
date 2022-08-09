@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title> 반복문(for)</title>
+</head>
+<body>
+  <h2>계산 반복하기</h2>
+  <div id="app">
+  <ul>
+   <li v-for="n in 10">{{ n }} * 5 = {{ n * 5 }} </li>
+  </ul>
+  </div>
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+
+      }
+    })
+  </script>
+</body>
+</html>

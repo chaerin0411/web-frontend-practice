@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>속성</title>
+</head>
+<body>
+  <h2>정렬 지정하기</h2>
+  <div id="app">
+    <p style="color: blue;">우측 정렬 직접 지정</p>
+   <p align="right">우측 정렬 직접 지정</p>
+   <p v-bind:align="myAlign">우측정렬을 v-bind로 지정하기</p>
+
+   <h2>인라인스타일 적용</h2>
+   <p v-bind:style="{ fontSize: mySize }">글자크기</p>
+
+   <p v-bind:style="{color:myColor}">글자색 변경</p>
+   <p v-bind:style="{backgroundColor: myBackgroundColor}"> 배경색 변경</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myAlign :'right' ,
+        myColor:'#D6009D',
+        mySize:'200%' ,
+        myBackgroundColor :'#F4C79A'
+      }
+    })
+  </script>
+</body>
+</html>
